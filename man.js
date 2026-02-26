@@ -12,7 +12,7 @@ const saveToLocal = () => {
 const renderAppointments = () => {
   if (appointments.length === 0) {
     apptGrid.innerHTML =
-      "<p style='text-align:center; width:1000px; color: #ef4444;'>There is no appointments</p>";
+      "<p style='text-align:start; width:100%; color: #ef4444;'>There is no appointments</p>";
     counterText.innerText = "0 Appointments";
   } else {
     const htmlCards = appointments
