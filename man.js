@@ -23,6 +23,7 @@ const renderAppointments = () => {
                 <p><i class="fa-solid fa-phone"></i> ${appt.phone}</p>
                 <p><i class="fa-solid fa-stethoscope"></i> ${appt.specialty}</p>
                 <p><i class="fa-solid fa-calendar-days"></i> ${appt.date}</p>
+                <p><i class="fa-solid fa-user-check"></i> Patient:  #${index + 1}</p>
                 <div class="actions">
                     <button class="btn-edit" onclick="editAppointment(${index})">
                         <i class="fa-solid fa-pen"></i> Edit
