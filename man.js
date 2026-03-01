@@ -63,14 +63,37 @@ const editAppointment = (index) => {
   renderAppointments();
 };
 
+
 apptForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const name = document.getElementById("patientName").value;
+  const phone = document.getElementById("patientEmail").value;
+  const specialty = document.getElementById("specialty").value;
+  const dateInput = document.getElementById("appointmentDate").value;
+
+  const selectedDate = new Date(dateInput);
+  const now = new Date();
+
+  if (selectedDate < now) {
+    alert(" Ma dooran kartid waqti hore u soo dhaafay!");
+    return; 
+  }
+
+  const isAlreadyBooked = appointments.some(appt => 
+    appt.date === dateInput && appt.specialty === specialty
+  );
+
+  if (isAlreadyBooked) {
+    alert(`Waqtigan hore ayaa loo qabsaday qaybta ${specialty}. Fadlan dooro waqti kale.`);
+    return; 
+  }
+
   const newAppointment = {
-    name: document.getElementById("patientName").value,
-    phone: document.getElementById("patientEmail").value,
-    specialty: document.getElementById("specialty").value,
-    date: document.getElementById("appointmentDate").value,
+    name: name,
+    phone: phone,
+    specialty: specialty,
+    date: dateInput,
   };
 
   appointments.push(newAppointment);
